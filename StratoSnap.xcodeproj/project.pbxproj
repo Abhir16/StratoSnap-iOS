@@ -1,0 +1,585 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		07DAB8F821C5FB5400946CEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DAB8F721C5FB5400946CEC /* AppDelegate.swift */; };
+		07DAB8FA21C5FB5400946CEC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DAB8F921C5FB5400946CEC /* ViewController.swift */; };
+		07DAB8FD21C5FB5400946CEC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07DAB8FB21C5FB5400946CEC /* Main.storyboard */; };
+		07DAB8FF21C5FB5600946CEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07DAB8FE21C5FB5600946CEC /* Assets.xcassets */; };
+		07DAB90221C5FB5600946CEC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07DAB90021C5FB5600946CEC /* LaunchScreen.storyboard */; };
+		07DAB90D21C5FB5600946CEC /* StratoSnapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DAB90C21C5FB5600946CEC /* StratoSnapTests.swift */; };
+		07DAB91821C5FB5600946CEC /* StratoSnapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DAB91721C5FB5600946CEC /* StratoSnapUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		07DAB90921C5FB5600946CEC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07DAB8EC21C5FB5400946CEC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 07DAB8F321C5FB5400946CEC;
+			remoteInfo = StratoSnap;
+		};
+		07DAB91421C5FB5600946CEC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07DAB8EC21C5FB5400946CEC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 07DAB8F321C5FB5400946CEC;
+			remoteInfo = StratoSnap;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		07DAB8F421C5FB5400946CEC /* StratoSnap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StratoSnap.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		07DAB8F721C5FB5400946CEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		07DAB8F921C5FB5400946CEC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		07DAB8FC21C5FB5400946CEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		07DAB8FE21C5FB5600946CEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		07DAB90121C5FB5600946CEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		07DAB90321C5FB5600946CEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07DAB90821C5FB5600946CEC /* StratoSnapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StratoSnapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		07DAB90C21C5FB5600946CEC /* StratoSnapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StratoSnapTests.swift; sourceTree = "<group>"; };
+		07DAB90E21C5FB5600946CEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07DAB91321C5FB5600946CEC /* StratoSnapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StratoSnapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		07DAB91721C5FB5600946CEC /* StratoSnapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StratoSnapUITests.swift; sourceTree = "<group>"; };
+		07DAB91921C5FB5600946CEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		07DAB8F121C5FB5400946CEC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07DAB90521C5FB5600946CEC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07DAB91021C5FB5600946CEC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		07DAB8EB21C5FB5400946CEC = {
+			isa = PBXGroup;
+			children = (
+				07DAB8F621C5FB5400946CEC /* StratoSnap */,
+				07DAB90B21C5FB5600946CEC /* StratoSnapTests */,
+				07DAB91621C5FB5600946CEC /* StratoSnapUITests */,
+				07DAB8F521C5FB5400946CEC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		07DAB8F521C5FB5400946CEC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				07DAB8F421C5FB5400946CEC /* StratoSnap.app */,
+				07DAB90821C5FB5600946CEC /* StratoSnapTests.xctest */,
+				07DAB91321C5FB5600946CEC /* StratoSnapUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		07DAB8F621C5FB5400946CEC /* StratoSnap */ = {
+			isa = PBXGroup;
+			children = (
+				07DAB8F721C5FB5400946CEC /* AppDelegate.swift */,
+				07DAB8F921C5FB5400946CEC /* ViewController.swift */,
+				07DAB8FB21C5FB5400946CEC /* Main.storyboard */,
+				07DAB8FE21C5FB5600946CEC /* Assets.xcassets */,
+				07DAB90021C5FB5600946CEC /* LaunchScreen.storyboard */,
+				07DAB90321C5FB5600946CEC /* Info.plist */,
+			);
+			path = StratoSnap;
+			sourceTree = "<group>";
+		};
+		07DAB90B21C5FB5600946CEC /* StratoSnapTests */ = {
+			isa = PBXGroup;
+			children = (
+				07DAB90C21C5FB5600946CEC /* StratoSnapTests.swift */,
+				07DAB90E21C5FB5600946CEC /* Info.plist */,
+			);
+			path = StratoSnapTests;
+			sourceTree = "<group>";
+		};
+		07DAB91621C5FB5600946CEC /* StratoSnapUITests */ = {
+			isa = PBXGroup;
+			children = (
+				07DAB91721C5FB5600946CEC /* StratoSnapUITests.swift */,
+				07DAB91921C5FB5600946CEC /* Info.plist */,
+			);
+			path = StratoSnapUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		07DAB8F321C5FB5400946CEC /* StratoSnap */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 07DAB91C21C5FB5600946CEC /* Build configuration list for PBXNativeTarget "StratoSnap" */;
+			buildPhases = (
+				07DAB8F021C5FB5400946CEC /* Sources */,
+				07DAB8F121C5FB5400946CEC /* Frameworks */,
+				07DAB8F221C5FB5400946CEC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StratoSnap;
+			productName = StratoSnap;
+			productReference = 07DAB8F421C5FB5400946CEC /* StratoSnap.app */;
+			productType = "com.apple.product-type.application";
+		};
+		07DAB90721C5FB5600946CEC /* StratoSnapTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 07DAB91F21C5FB5600946CEC /* Build configuration list for PBXNativeTarget "StratoSnapTests" */;
+			buildPhases = (
+				07DAB90421C5FB5600946CEC /* Sources */,
+				07DAB90521C5FB5600946CEC /* Frameworks */,
+				07DAB90621C5FB5600946CEC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				07DAB90A21C5FB5600946CEC /* PBXTargetDependency */,
+			);
+			name = StratoSnapTests;
+			productName = StratoSnapTests;
+			productReference = 07DAB90821C5FB5600946CEC /* StratoSnapTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		07DAB91221C5FB5600946CEC /* StratoSnapUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 07DAB92221C5FB5600946CEC /* Build configuration list for PBXNativeTarget "StratoSnapUITests" */;
+			buildPhases = (
+				07DAB90F21C5FB5600946CEC /* Sources */,
+				07DAB91021C5FB5600946CEC /* Frameworks */,
+				07DAB91121C5FB5600946CEC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				07DAB91521C5FB5600946CEC /* PBXTargetDependency */,
+			);
+			name = StratoSnapUITests;
+			productName = StratoSnapUITests;
+			productReference = 07DAB91321C5FB5600946CEC /* StratoSnapUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		07DAB8EC21C5FB5400946CEC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Abhishek  Ravi";
+				TargetAttributes = {
+					07DAB8F321C5FB5400946CEC = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					07DAB90721C5FB5600946CEC = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 07DAB8F321C5FB5400946CEC;
+					};
+					07DAB91221C5FB5600946CEC = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 07DAB8F321C5FB5400946CEC;
+					};
+				};
+			};
+			buildConfigurationList = 07DAB8EF21C5FB5400946CEC /* Build configuration list for PBXProject "StratoSnap" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 07DAB8EB21C5FB5400946CEC;
+			productRefGroup = 07DAB8F521C5FB5400946CEC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				07DAB8F321C5FB5400946CEC /* StratoSnap */,
+				07DAB90721C5FB5600946CEC /* StratoSnapTests */,
+				07DAB91221C5FB5600946CEC /* StratoSnapUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		07DAB8F221C5FB5400946CEC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07DAB90221C5FB5600946CEC /* LaunchScreen.storyboard in Resources */,
+				07DAB8FF21C5FB5600946CEC /* Assets.xcassets in Resources */,
+				07DAB8FD21C5FB5400946CEC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07DAB90621C5FB5600946CEC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07DAB91121C5FB5600946CEC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		07DAB8F021C5FB5400946CEC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07DAB8FA21C5FB5400946CEC /* ViewController.swift in Sources */,
+				07DAB8F821C5FB5400946CEC /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07DAB90421C5FB5600946CEC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07DAB90D21C5FB5600946CEC /* StratoSnapTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		07DAB90F21C5FB5600946CEC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07DAB91821C5FB5600946CEC /* StratoSnapUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		07DAB90A21C5FB5600946CEC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 07DAB8F321C5FB5400946CEC /* StratoSnap */;
+			targetProxy = 07DAB90921C5FB5600946CEC /* PBXContainerItemProxy */;
+		};
+		07DAB91521C5FB5600946CEC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 07DAB8F321C5FB5400946CEC /* StratoSnap */;
+			targetProxy = 07DAB91421C5FB5600946CEC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		07DAB8FB21C5FB5400946CEC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				07DAB8FC21C5FB5400946CEC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		07DAB90021C5FB5600946CEC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				07DAB90121C5FB5600946CEC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		07DAB91A21C5FB5600946CEC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		07DAB91B21C5FB5600946CEC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		07DAB91D21C5FB5600946CEC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = StratoSnap/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stratosnap.StratoSnap.StratoSnap;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		07DAB91E21C5FB5600946CEC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = StratoSnap/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stratosnap.StratoSnap.StratoSnap;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		07DAB92021C5FB5600946CEC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = StratoSnapTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stratosnap.StratoSnap.StratoSnapTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StratoSnap.app/StratoSnap";
+			};
+			name = Debug;
+		};
+		07DAB92121C5FB5600946CEC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = StratoSnapTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stratosnap.StratoSnap.StratoSnapTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StratoSnap.app/StratoSnap";
+			};
+			name = Release;
+		};
+		07DAB92321C5FB5600946CEC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = StratoSnapUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stratosnap.StratoSnap.StratoSnapUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = StratoSnap;
+			};
+			name = Debug;
+		};
+		07DAB92421C5FB5600946CEC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = StratoSnapUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.stratosnap.StratoSnap.StratoSnapUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = StratoSnap;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		07DAB8EF21C5FB5400946CEC /* Build configuration list for PBXProject "StratoSnap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07DAB91A21C5FB5600946CEC /* Debug */,
+				07DAB91B21C5FB5600946CEC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		07DAB91C21C5FB5600946CEC /* Build configuration list for PBXNativeTarget "StratoSnap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07DAB91D21C5FB5600946CEC /* Debug */,
+				07DAB91E21C5FB5600946CEC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		07DAB91F21C5FB5600946CEC /* Build configuration list for PBXNativeTarget "StratoSnapTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07DAB92021C5FB5600946CEC /* Debug */,
+				07DAB92121C5FB5600946CEC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		07DAB92221C5FB5600946CEC /* Build configuration list for PBXNativeTarget "StratoSnapUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07DAB92321C5FB5600946CEC /* Debug */,
+				07DAB92421C5FB5600946CEC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 07DAB8EC21C5FB5400946CEC /* Project object */;
+}

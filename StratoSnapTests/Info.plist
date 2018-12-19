@@ -16,7 +16,11 @@
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
+	<key>NSCameraUsageDescription</key>
+	<string>For taking photos with your drone.</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>For saving photos captured by the drone.</string>
 </dict>
 </plist>

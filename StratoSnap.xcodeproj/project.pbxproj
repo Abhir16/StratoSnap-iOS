@@ -14,6 +14,7 @@
 		07DAB90221C5FB5600946CEC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07DAB90021C5FB5600946CEC /* LaunchScreen.storyboard */; };
 		07DAB90D21C5FB5600946CEC /* StratoSnapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DAB90C21C5FB5600946CEC /* StratoSnapTests.swift */; };
 		07DAB91821C5FB5600946CEC /* StratoSnapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DAB91721C5FB5600946CEC /* StratoSnapUITests.swift */; };
+		07DAB92621C6070100946CEC /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DAB92521C6070100946CEC /* CameraController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		07DAB91321C5FB5600946CEC /* StratoSnapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StratoSnapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		07DAB91721C5FB5600946CEC /* StratoSnapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StratoSnapUITests.swift; sourceTree = "<group>"; };
 		07DAB91921C5FB5600946CEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07DAB92521C6070100946CEC /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				07DAB8F721C5FB5400946CEC /* AppDelegate.swift */,
 				07DAB8F921C5FB5400946CEC /* ViewController.swift */,
+				07DAB92521C6070100946CEC /* CameraController.swift */,
 				07DAB8FB21C5FB5400946CEC /* Main.storyboard */,
 				07DAB8FE21C5FB5600946CEC /* Assets.xcassets */,
 				07DAB90021C5FB5600946CEC /* LaunchScreen.storyboard */,
@@ -256,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07DAB92621C6070100946CEC /* CameraController.swift in Sources */,
 				07DAB8FA21C5FB5400946CEC /* ViewController.swift in Sources */,
 				07DAB8F821C5FB5400946CEC /* AppDelegate.swift in Sources */,
 			);
@@ -433,6 +437,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C2D7UYRT4B;
 				INFOPLIST_FILE = StratoSnap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -450,6 +455,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = C2D7UYRT4B;
 				INFOPLIST_FILE = StratoSnap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -15,6 +15,7 @@
 		07DAB90D21C5FB5600946CEC /* StratoSnapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DAB90C21C5FB5600946CEC /* StratoSnapTests.swift */; };
 		07DAB91821C5FB5600946CEC /* StratoSnapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DAB91721C5FB5600946CEC /* StratoSnapUITests.swift */; };
 		07DAB92621C6070100946CEC /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DAB92521C6070100946CEC /* CameraController.swift */; };
+		B365E22E2213C4BC0004F8DF /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B365E22D2213C4BC0004F8DF /* PreviewView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		07DAB91721C5FB5600946CEC /* StratoSnapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StratoSnapUITests.swift; sourceTree = "<group>"; };
 		07DAB91921C5FB5600946CEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07DAB92521C6070100946CEC /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
+		B365E22D2213C4BC0004F8DF /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				07DAB8FE21C5FB5600946CEC /* Assets.xcassets */,
 				07DAB90021C5FB5600946CEC /* LaunchScreen.storyboard */,
 				07DAB90321C5FB5600946CEC /* Info.plist */,
+				B365E22D2213C4BC0004F8DF /* PreviewView.swift */,
 			);
 			path = StratoSnap;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07DAB92621C6070100946CEC /* CameraController.swift in Sources */,
+				B365E22E2213C4BC0004F8DF /* PreviewView.swift in Sources */,
 				07DAB8FA21C5FB5400946CEC /* ViewController.swift in Sources */,
 				07DAB8F821C5FB5400946CEC /* AppDelegate.swift in Sources */,
 			);
@@ -437,13 +441,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C2D7UYRT4B;
+				DEVELOPMENT_TEAM = DQ3H3XD244;
 				INFOPLIST_FILE = StratoSnap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.stratosnap.StratoSnap.StratoSnap;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stratosnap.StratoSnap.StratoSnap1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -455,13 +459,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C2D7UYRT4B;
+				DEVELOPMENT_TEAM = DQ3H3XD244;
 				INFOPLIST_FILE = StratoSnap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.stratosnap.StratoSnap.StratoSnap;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stratosnap.StratoSnap.StratoSnap1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

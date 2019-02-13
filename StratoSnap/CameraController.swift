@@ -10,25 +10,29 @@ import Foundation
 import AVFoundation
 import UIKit
 import Photos
+import Vision
 
-protocol CameraControllerDelegate: class {
+protocol CameraControllerDelegate {
     func captured(image: UIImage)
+    func handleFaces(request: VNRequest, error: Error?)
 }
 
 class CameraController: NSObject {
+    
+    private var faceDetectionRequest: VNRequest!
+    private var requests = [VNRequest]()
     var captureSession: AVCaptureSession?
     var counter = 0
-    weak var delegate: CameraControllerDelegate?
+    var delegate: CameraControllerDelegate!
     var photoOutput: AVCapturePhotoOutput?
     
     var rearCamera: AVCaptureDevice?
     var rearCameraInput: AVCaptureDeviceInput?
-    
     var previewLayer: AVCaptureVideoPreviewLayer?
     
     var photoCaptureCompletionBlock: ((UIImage?, Error?) -> Void)?
     
-    func displayPreview(on view: UIView) throws {
+    func displayPreview(on view:PreviewView) throws {
         guard let captureSession = self.captureSession, captureSession.isRunning else { throw CameraControllerError.captureSessionIsMissing }
         
         self.previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
@@ -48,7 +52,7 @@ class CameraController: NSObject {
 
 extension CameraController: AVCapturePhotoCaptureDelegate {
     public func photoOutput(_ captureOutput: AVCapturePhotoOutput, didFinishProcessingPhoto photoSampleBuffer: CMSampleBuffer?, previewPhoto previewPhotoSampleBuffer: CMSampleBuffer?,
-                        resolvedSettings: AVCaptureResolvedPhotoSettings, bracketSettings: AVCaptureBracketedStillImageSettings?, error: Swift.Error?) {
+                            resolvedSettings: AVCaptureResolvedPhotoSettings, bracketSettings: AVCaptureBracketedStillImageSettings?, error: Swift.Error?) {
         if let error = error { self.photoCaptureCompletionBlock?(nil, error) }
             
         else if let buffer = photoSampleBuffer, let data = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: buffer, previewPhotoSampleBuffer: nil),
@@ -61,14 +65,62 @@ extension CameraController: AVCapturePhotoCaptureDelegate {
     }
 }
 
+
+
+// Camera Settings & Orientation
+extension CameraController {
+    func exifOrientationFromDeviceOrientation() -> UInt32 {
+        enum DeviceOrientation: UInt32 {
+            case top0ColLeft = 1
+            case top0ColRight = 2
+            case bottom0ColRight = 3
+            case bottom0ColLeft = 4
+            case left0ColTop = 5
+            case right0ColTop = 6
+            case right0ColBottom = 7
+            case left0ColBottom = 8
+        }
+        var exifOrientation: DeviceOrientation
+        // assuming back camera always
+        switch UIDevice.current.orientation {
+        case .portraitUpsideDown:
+            exifOrientation = .left0ColBottom
+        case .landscapeLeft:
+            exifOrientation =  .top0ColLeft
+        case .landscapeRight:
+            exifOrientation = .bottom0ColRight
+        default:
+            exifOrientation = .right0ColTop
+        }
+        return exifOrientation.rawValue
+    }
+}
+
 extension CameraController: AVCaptureVideoDataOutputSampleBufferDelegate {
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         // TODO: FIX THIS LOGIC UIImage is not being created properly!!
         DispatchQueue.main.async { [unowned self] in
             let uiImage = self.getImageFromSampleBuffer(sampleBuffer: sampleBuffer)
-            print("esketit")
-            self.delegate?.captured(image: uiImage!)
+            //self.delegate.captured(image: uiImage!)
         }
+        guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer),
+            let exifOrientation = CGImagePropertyOrientation(rawValue: exifOrientationFromDeviceOrientation()) else { return }
+        var requestOptions: [VNImageOption : Any] = [:]
+        
+        if let cameraIntrinsicData = CMGetAttachment(sampleBuffer, key: kCMSampleBufferAttachmentKey_CameraIntrinsicMatrix, attachmentModeOut: nil) {
+            requestOptions = [.cameraIntrinsics : cameraIntrinsicData]
+        }
+        
+        let imageRequestHandler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: exifOrientation, options: requestOptions)
+        print("doing the thing")
+        do {
+            try imageRequestHandler.perform(requests)
+        }
+            
+        catch {
+            print(error)
+        }
+        
     }
     
     func getImageFromSampleBuffer(sampleBuffer: CMSampleBuffer) ->UIImage? {
@@ -93,6 +145,7 @@ extension CameraController: AVCaptureVideoDataOutputSampleBufferDelegate {
         return image
     }
 }
+
 
 extension CameraController {
     
@@ -123,6 +176,11 @@ extension CameraController {
             
             self.rearCamera = backCamera
         }
+        func setupVision() {
+            self.faceDetectionRequest = VNDetectFaceRectanglesRequest(completionHandler: self.delegate.handleFaces) // Default
+            self.requests = [faceDetectionRequest]
+            print("setting up vision!!")
+        }
         
         func configureDeviceInputs() throws {
             //3
@@ -149,17 +207,11 @@ extension CameraController {
             captureSession.startRunning()
         }
         
-//        func convert(cmage:CIImage) -> UIImage
-//        {
-//            let context:CIContext = CIContext.init(options: nil)
-//            let cgImage:CGImage = context.createCGImage(cmage, from: cmage.extent)!
-//            let image:UIImage = UIImage.init(cgImage: cgImage)
-//            return image
-//        }
         
         DispatchQueue(label: "prepare").async {
             do {
                 createCaptureSession()
+                setupVision()
                 try configureCaptureDevices()
                 try configureDeviceInputs()
                 try configurePhotoOutput()
@@ -180,3 +232,4 @@ extension CameraController {
     }
     
 }
+

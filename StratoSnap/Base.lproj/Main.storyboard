@@ -18,18 +18,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3sV-Tm-kk3">
-                                <rect key="frame" x="16" y="159" width="343" height="238"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" text="Resize and move the bounding rectangle to where you want your faces to be with respect to the camera's frame in landscape mode" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="hJL-Sl-D3O">
+                                <rect key="frame" x="41" y="421" width="292" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9lS-Md-L8I">
-                                        <rect key="frame" x="0.0" y="133" width="343" height="69"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.14117647058823529" green="0.72941176470588232" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" red="0.61176470588235299" green="0.90196078431372551" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" highlighted="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y4c-mV-0Jn" customClass="RoundedButton" customModule="StratoSnap" customModuleProvider="target">
                                 <rect key="frame" x="73" y="600" width="228" height="67"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -52,22 +47,11 @@
                                     <segue destination="aDY-6p-P7g" kind="show" id="DKc-cE-5RX"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Resize and move the bounding rectangle to where you want your faces to be with respect to the camera's frame in landscape mode" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hJL-Sl-D3O">
-                                <rect key="frame" x="41" y="405" width="292" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="rw7-5h-UL2"/>
                     </view>
                     <navigationItem key="navigationItem" title="Picture Settings" id="xUv-zp-mO5"/>
-                    <connections>
-                        <outlet property="BoundingBox" destination="9lS-Md-L8I" id="A1v-CW-k9Y"/>
-                        <outlet property="ImageBox" destination="3sV-Tm-kk3" id="jBe-ME-ONc"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="818-Ie-bw5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -77,25 +61,14 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController title="MainFlightController" id="BYZ-38-t0r" customClass="MainFlightController" customModule="StratoSnap" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="PreviewView" customModule="StratoSnap" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qbk-P0-GpH">
-                                <rect key="frame" x="153" y="561" width="68" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="CAPTURE"/>
-                                <connections>
-                                    <action selector="captureClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rua-b1-jO1"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="captureButton" destination="qbk-P0-GpH" id="Yq7-r6-u4p"/>
-                        <outlet property="capturePreviewView" destination="8bC-Xf-vdC" id="dRU-ZU-RIN"/>
+                        <outlet property="capturePreviewView" destination="8bC-Xf-vdC" id="q0w-uY-3Az"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -110,8 +83,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LaunchIcon" translatesAutoresizingMaskIntoConstraints="NO" id="gZU-Kj-9A3">
+                                <rect key="frame" x="36" y="190" width="302" height="310"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" highlighted="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="phA-Yc-mcc" customClass="RoundedButton" customModule="StratoSnap" customModuleProvider="target">
-                                <rect key="frame" x="73" y="592" width="228" height="67"/>
+                                <rect key="frame" x="73" y="600" width="228" height="67"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.14117647058823529" green="0.72941176470588232" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="30"/>
@@ -131,10 +108,6 @@
                                     <segue destination="POV-8h-utM" kind="show" id="FJR-jv-gdP"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LaunchIcon" translatesAutoresizingMaskIntoConstraints="NO" id="gZU-Kj-9A3">
-                                <rect key="frame" x="36" y="190" width="302" height="302"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <viewLayoutGuide key="safeArea" id="fCg-5P-lt4"/>
@@ -145,20 +118,64 @@
             </objects>
             <point key="canvasLocation" x="-660" y="16.995073891625616"/>
         </scene>
-        <!--DroneLaunchController-->
+        <!--Launch-->
         <scene sceneID="rSh-KF-fUb">
             <objects>
-                <viewController title="DroneLaunchController" id="Dkk-kV-b6o" customClass="DroneLaunchController" customModule="StratoSnap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Launch" id="Dkk-kV-b6o" customClass="DroneLaunchController" customModule="StratoSnap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Edr-bT-AKK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ZF-lW-xM2" customClass="RoundedButton" customModule="StratoSnap" customModuleProvider="target">
+                                <rect key="frame" x="73" y="600" width="228" height="67"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="30"/>
+                                <state key="normal" title="Cancel Launch">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="cancelDroneLaunch:" destination="Dkk-kV-b6o" eventType="touchUpInside" id="HAI-Bz-ckR"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" text="Clip Phone to Drone frame and hold arm out for takeoff" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="Hne-ll-dRJ">
+                                <rect key="frame" x="40" y="139" width="295" height="88"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Picture1" translatesAutoresizingMaskIntoConstraints="NO" id="zkE-Oa-qX5">
+                                <rect key="frame" x="8" y="403" width="359" height="174"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="greencircle" translatesAutoresizingMaskIntoConstraints="NO" id="1GS-YJ-2LQ">
+                                <rect key="frame" x="105" y="235" width="165" height="160"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="30s" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aFs-eZ-gEy">
+                                <rect key="frame" x="164" y="291" width="58" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.14117647059999999" green="0.72941176470000002" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="EuphemiaUCAS-Bold" family="Euphemia UCAS" pointSize="25"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="Fhw-K2-IUD"/>
                     </view>
+                    <connections>
+                        <outlet property="timerLabel" destination="aFs-eZ-gEy" id="45H-hf-4Rl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0TR-M5-e6e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2752.8000000000002" y="16.995073891625616"/>
+            <point key="canvasLocation" x="2261.5999999999999" y="16.995073891625616"/>
         </scene>
         <!--Flight Settings-->
         <scene sceneID="irT-A3-XB2">
@@ -167,13 +184,59 @@
                     <view key="view" contentMode="scaleToFill" id="hQB-cm-GiQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="nOT-ye-oXy">
+                                <rect key="frame" x="37" y="494" width="301" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.14117647059999999" green="0.72941176470000002" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="sliderValueChanged:" destination="aDY-6p-P7g" eventType="valueChanged" id="vmR-VE-nsz"/>
+                                </connections>
+                            </slider>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" text="50m" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wwI-DR-L2d">
+                                <rect key="frame" x="64" y="231" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="60"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bYT-F6-9cv" customClass="RoundedButton" customModule="StratoSnap" customModuleProvider="target">
+                                <rect key="frame" x="73" y="600" width="228" height="67"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.14117647059999999" green="0.72941176470000002" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="30"/>
+                                <state key="normal" title="Start Drone">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="Dkk-kV-b6o" kind="show" id="a7F-kr-nOu"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Altitude Hold" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pUc-he-lHS">
+                                <rect key="frame" x="64" y="418" width="240" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="25"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="cHt-Lg-GeR"/>
                     </view>
+                    <connections>
+                        <outlet property="AltitudeSlider" destination="nOT-ye-oXy" id="aRc-lS-M22"/>
+                        <outlet property="AltitudeTextField" destination="wwI-DR-L2d" id="yeG-B2-gyV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ALP-5i-pHJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1226" y="17"/>
+            <point key="canvasLocation" x="1224.8" y="16.995073891625616"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uQA-D8-Scq">
@@ -206,5 +269,7 @@
     </scenes>
     <resources>
         <image name="LaunchIcon" width="183.83999633789062" height="222.24000549316406"/>
+        <image name="Picture1" width="467.51998901367188" height="262.55999755859375"/>
+        <image name="greencircle" width="1152" height="1152"/>
     </resources>
 </document>

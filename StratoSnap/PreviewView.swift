@@ -13,6 +13,7 @@ import AVFoundation
 class PreviewView: UIView {
     
     private var maskLayer = [CAShapeLayer]()
+    private var boundingBoxLayer = CAShapeLayer()
     
     // MARK: AV capture properties
     var videoPreviewLayer: AVCaptureVideoPreviewLayer {
@@ -32,7 +33,16 @@ class PreviewView: UIView {
     override class var layerClass: AnyClass {
         return AVCaptureVideoPreviewLayer.self
     }
-    
+    public func createBoundBoxLayer(settings: FlightSettings) {
+        let rect = CGRect(x: frame.width * settings.position! ,y: 0.0, width: frame.width * settings.height! ,height: frame.height)
+        print(rect)
+        boundingBoxLayer.frame = rect
+        boundingBoxLayer.borderColor = UIColor.green.cgColor
+        boundingBoxLayer.opacity = 0.75
+        boundingBoxLayer.borderWidth = 2.0
+        layer.insertSublayer(boundingBoxLayer, at: 1)
+        
+    }
     // Create a new layer drawing the bounding box
     private func createLayer(in rect: CGRect) -> CAShapeLayer{
         

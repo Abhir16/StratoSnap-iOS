@@ -8,14 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		07DAB8F821C5FB5400946CEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DAB8F721C5FB5400946CEC /* AppDelegate.swift */; };
-		07DAB8FA21C5FB5400946CEC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DAB8F921C5FB5400946CEC /* ViewController.swift */; };
 		07DAB8FD21C5FB5400946CEC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07DAB8FB21C5FB5400946CEC /* Main.storyboard */; };
 		07DAB8FF21C5FB5600946CEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07DAB8FE21C5FB5600946CEC /* Assets.xcassets */; };
 		07DAB90221C5FB5600946CEC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07DAB90021C5FB5600946CEC /* LaunchScreen.storyboard */; };
 		07DAB90D21C5FB5600946CEC /* StratoSnapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DAB90C21C5FB5600946CEC /* StratoSnapTests.swift */; };
 		07DAB91821C5FB5600946CEC /* StratoSnapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DAB91721C5FB5600946CEC /* StratoSnapUITests.swift */; };
 		07DAB92621C6070100946CEC /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07DAB92521C6070100946CEC /* CameraController.swift */; };
+		B365612D222E5781005DC831 /* MainFlightController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B365612C222E5781005DC831 /* MainFlightController.swift */; };
 		B365E22E2213C4BC0004F8DF /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B365E22D2213C4BC0004F8DF /* PreviewView.swift */; };
+		B3741F34222331E30080104B /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3741F33222331E30080104B /* HomeScreenViewController.swift */; };
+		B3741F38222332530080104B /* PictureSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3741F37222332530080104B /* PictureSettingsController.swift */; };
+		B3741F3A2223327A0080104B /* FlightSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3741F392223327A0080104B /* FlightSettingsController.swift */; };
+		B3741F3C222332950080104B /* DroneLaunchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3741F3B222332950080104B /* DroneLaunchController.swift */; };
+		B3741F40222339D60080104B /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3741F3F222339D60080104B /* RoundedButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +43,6 @@
 /* Begin PBXFileReference section */
 		07DAB8F421C5FB5400946CEC /* StratoSnap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StratoSnap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07DAB8F721C5FB5400946CEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		07DAB8F921C5FB5400946CEC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		07DAB8FC21C5FB5400946CEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		07DAB8FE21C5FB5600946CEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		07DAB90121C5FB5600946CEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -50,7 +54,13 @@
 		07DAB91721C5FB5600946CEC /* StratoSnapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StratoSnapUITests.swift; sourceTree = "<group>"; };
 		07DAB91921C5FB5600946CEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07DAB92521C6070100946CEC /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
+		B365612C222E5781005DC831 /* MainFlightController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlightController.swift; sourceTree = "<group>"; };
 		B365E22D2213C4BC0004F8DF /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
+		B3741F33222331E30080104B /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
+		B3741F37222332530080104B /* PictureSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureSettingsController.swift; sourceTree = "<group>"; };
+		B3741F392223327A0080104B /* FlightSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightSettingsController.swift; sourceTree = "<group>"; };
+		B3741F3B222332950080104B /* DroneLaunchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneLaunchController.swift; sourceTree = "<group>"; };
+		B3741F3F222339D60080104B /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,12 +112,17 @@
 			isa = PBXGroup;
 			children = (
 				07DAB8F721C5FB5400946CEC /* AppDelegate.swift */,
-				07DAB8F921C5FB5400946CEC /* ViewController.swift */,
+				B3741F3F222339D60080104B /* RoundedButton.swift */,
+				B365612C222E5781005DC831 /* MainFlightController.swift */,
 				07DAB92521C6070100946CEC /* CameraController.swift */,
 				07DAB8FB21C5FB5400946CEC /* Main.storyboard */,
+				B3741F33222331E30080104B /* HomeScreenViewController.swift */,
 				07DAB8FE21C5FB5600946CEC /* Assets.xcassets */,
 				07DAB90021C5FB5600946CEC /* LaunchScreen.storyboard */,
+				B3741F37222332530080104B /* PictureSettingsController.swift */,
+				B3741F3B222332950080104B /* DroneLaunchController.swift */,
 				07DAB90321C5FB5600946CEC /* Info.plist */,
+				B3741F392223327A0080104B /* FlightSettingsController.swift */,
 				B365E22D2213C4BC0004F8DF /* PreviewView.swift */,
 			);
 			path = StratoSnap;
@@ -262,10 +277,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3741F3C222332950080104B /* DroneLaunchController.swift in Sources */,
 				07DAB92621C6070100946CEC /* CameraController.swift in Sources */,
 				B365E22E2213C4BC0004F8DF /* PreviewView.swift in Sources */,
-				07DAB8FA21C5FB5400946CEC /* ViewController.swift in Sources */,
+				B3741F38222332530080104B /* PictureSettingsController.swift in Sources */,
+				B3741F3A2223327A0080104B /* FlightSettingsController.swift in Sources */,
+				B3741F40222339D60080104B /* RoundedButton.swift in Sources */,
 				07DAB8F821C5FB5400946CEC /* AppDelegate.swift in Sources */,
+				B365612D222E5781005DC831 /* MainFlightController.swift in Sources */,
+				B3741F34222331E30080104B /* HomeScreenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

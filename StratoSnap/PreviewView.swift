@@ -10,11 +10,20 @@ import UIKit
 import Vision
 import AVFoundation
 
+enum GimbalState {
+    case idle
+    case capture
+    case moveUp
+    case moveDown
+}
+
 class PreviewView: UIView {
     
     private var maskLayer = [CAShapeLayer]()
     private var boundingBoxLayer = CAShapeLayer()
-    
+    private var state: GimbalState = .idle
+    private var captureCount: CGFloat = 0.0
+    private static var captureMax: CGFloat = 50
     // MARK: AV capture properties
     var videoPreviewLayer: AVCaptureVideoPreviewLayer {
         return layer as! AVCaptureVideoPreviewLayer
@@ -35,19 +44,18 @@ class PreviewView: UIView {
     }
     public func createBoundBoxLayer(settings: FlightSettings) {
         let rect = CGRect(x: frame.width * settings.position! ,y: 0.0, width: frame.width * settings.height! ,height: frame.height)
-        print(rect)
         boundingBoxLayer.frame = rect
         boundingBoxLayer.borderColor = UIColor.green.cgColor
         boundingBoxLayer.opacity = 0.75
         boundingBoxLayer.borderWidth = 2.0
         layer.insertSublayer(boundingBoxLayer, at: 1)
+        print("bounding box topleft coord is " + boundingBoxLayer.frame.height.description + " " + boundingBoxLayer.frame.width.description)
         
     }
-    // Create a new layer drawing the bounding box
-    private func createLayer(in rect: CGRect) -> CAShapeLayer{
-        
+    
+    private func drawFace(in rect: CGRect) -> Void {
         let mask = CAShapeLayer()
-        mask.frame = rect
+        mask.frame = rect //CGRect(origin: rect.origin,  size: CGSize(width: rect.size.height, height: rect.size.width))
         mask.cornerRadius = 10
         mask.opacity = 0.75
         mask.borderColor = UIColor.yellow.cgColor
@@ -55,8 +63,60 @@ class PreviewView: UIView {
         
         maskLayer.append(mask)
         layer.insertSublayer(mask, at: 1)
+    }
+    
+    // Create a new layer drawing the bounding box
+    public func getCaptureState() -> Bool {
+        var upWeight: CGFloat = 0.0
+        var downWeight:CGFloat = 0.0
+        var captureWeight:CGFloat = 0.0
+        for layer in maskLayer {
+            let topLeft = CGPoint(x:layer.frame.minX, y:layer.frame.minY);
+            let topRight = CGPoint(x:layer.frame.maxX, y:layer.frame.minY);
+            let bottomLeft = CGPoint(x:layer.frame.minY, y:layer.frame.maxY);
+            let bottomRight = CGPoint(x:layer.frame.maxX, y:layer.frame.maxY);
+            let height = layer.frame.height
+            let width = layer.frame.width
+            let area = height * width
+            // TODO: change the capture condition such that if over x % of bounding box hieght is filled, capture picture
+            print("this is the area" + area.description)
+            if ( boundingBoxLayer.frame.contains(topLeft) && ( width > boundingBoxLayer.frame.width || boundingBoxLayer.frame.contains(bottomLeft) )
+                || boundingBoxLayer.frame.contains(bottomLeft) && ( (width > boundingBoxLayer.frame.width)  || boundingBoxLayer.contains(topLeft) )) {
+                captureWeight += area
+            }
+            else if (boundingBoxLayer.frame.minX < topLeft.x) {
+                downWeight += area
+            }
+            else {
+                upWeight += area
+            }
+        }
+        let maxWeight = max(downWeight, upWeight, captureWeight )
+        if maxWeight.isEqual(to: 0.0) {
+            state = .idle
+            print("need to idle!")
+        }
+        else if (maxWeight.isEqual(to: downWeight)) {
+            state = .moveDown
+            print("need to move up!")
+        }
+        else if (maxWeight.isEqual(to: upWeight)) {
+            state = .moveUp
+            print("need to move down!")
+        }
+        else {
+            state = .capture
+            print("need to capture!")
+            
+            if self.captureCount < PreviewView.captureMax {
+                return true
+            }
+            print("...captureCount is " + self.captureCount.description )
+            
+            self.captureCount += 1
+        }
         
-        return mask
+        return false
     }
     
     public func drawFaceboundingBox(face : VNFaceObservation) {
@@ -66,14 +126,15 @@ class PreviewView: UIView {
         let translate = CGAffineTransform.identity.scaledBy(x: frame.width, y: frame.height)
         
         // The coordinates are normalized to the dimensions of the processed image, with the origin at the image's lower-left corner.
-        let facebounds = face.boundingBox.applying(translate).applying(transform)
+        var facebounds = face.boundingBox.applying(translate).applying(transform)
+        // temporary, need to find the proper transform to achieve same result as below - required for landscape
+        facebounds = CGRect(origin: facebounds.origin,  size: CGSize(width: facebounds.size.height, height: facebounds.size.width))
         
-        _ = createLayer(in: facebounds)
+        drawFace(in:facebounds)
         
     }
     
     public func removeMask() {
-        print("reached removeMask")
         for mask in maskLayer {
             mask.removeFromSuperlayer()
         }

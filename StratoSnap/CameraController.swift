@@ -45,8 +45,14 @@ class CameraController: NSObject {
     
     func captureImage(completion: @escaping (UIImage?, Error?) -> Void) {
         guard let captureSession = captureSession, captureSession.isRunning else { completion(nil, CameraControllerError.captureSessionIsMissing); return }
-        self.photoOutput?.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
+        self.capturePhoto()
         self.photoCaptureCompletionBlock = completion
+        print("captured the image!!")
+    }
+    public func capturePhoto() {
+        // TODO: need to fix how you must hit the capture button first before automatic capture is triggered
+        print("capture!!!!!!")
+        self.photoOutput?.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
     }
 }
 
@@ -101,7 +107,8 @@ extension CameraController: AVCaptureVideoDataOutputSampleBufferDelegate {
         // TODO: FIX THIS LOGIC UIImage is not being created properly!!
         DispatchQueue.main.async { [unowned self] in
             let uiImage = self.getImageFromSampleBuffer(sampleBuffer: sampleBuffer)
-            //self.delegate.captured(image: uiImage!)
+            
+            // self.delegate.captured(image: uiImage!)
         }
         guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer),
             let exifOrientation = CGImagePropertyOrientation(rawValue: exifOrientationFromDeviceOrientation()) else { return }
@@ -112,13 +119,12 @@ extension CameraController: AVCaptureVideoDataOutputSampleBufferDelegate {
         }
         
         let imageRequestHandler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: exifOrientation, options: requestOptions)
-        print("doing the thing")
         do {
             try imageRequestHandler.perform(requests)
         }
             
         catch {
-            print(error)
+            //print(error)
         }
         
     }
@@ -166,7 +172,6 @@ extension CameraController {
         func configureCaptureDevices() throws {
             guard let backCamera = AVCaptureDevice.default(for: AVMediaType.video)
                 else {
-                    print("Unable to access back camera!")
                     return
             }
             // set mode to autofocus
@@ -179,7 +184,6 @@ extension CameraController {
         func setupVision() {
             self.faceDetectionRequest = VNDetectFaceRectanglesRequest(completionHandler: self.delegate.handleFaces) // Default
             self.requests = [faceDetectionRequest]
-            print("setting up vision!!")
         }
         
         func configureDeviceInputs() throws {

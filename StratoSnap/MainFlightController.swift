@@ -11,6 +11,7 @@ import Photos
 import AVFoundation
 import Vision
 /// TODO: add http requests to drones control system indicating whether to position gimbal up or down based on adjustment algorithm
+
 class MainFlightController: UIViewController {
     
     //@IBOutlet var capturePreviewView: PreviewView!
@@ -26,14 +27,12 @@ class MainFlightController: UIViewController {
     }()
     
     var info: FlightSettings?
-    
     @objc func captureClicked(_ sender: Any) {
         cameraController.captureImage {(image, error) in
             guard let image = image else {
-                print(error ?? "Image capture error")
+                //print(error ?? "Image capture error")
                 return
             }
-            print("Image Captured!")
             
             try? PHPhotoLibrary.shared().performChangesAndWait {// save to library
                 PHAssetChangeRequest.creationRequestForAsset(from: image)
@@ -83,17 +82,11 @@ class MainFlightController: UIViewController {
             capturePreviewView.bottomAnchor.constraint(equalTo:view.bottomAnchor)
         ])
         
-        
-        print("hello world")
-        print(info?.position)
-        print(info?.height)
-        print(info?.altitude)
-        
         cameraController.delegate = self
         func configureCameraController() {
             cameraController.prepare {(error) in
                 if let error = error {
-                    print(error)
+                    //print(error)
                 }
                 try? self.cameraController.displayPreview(on: self.capturePreviewView)
                 self.capturePreviewView.createBoundBoxLayer(settings: self.info!)
@@ -111,13 +104,17 @@ extension MainFlightController: CameraControllerDelegate {
         })
     }
     func handleFaces(request: VNRequest, error: Error?) {
-        print("handling faces!!")
         DispatchQueue.main.async {
             //perform all the UI updates on the main queue
             guard let results = request.results as? [VNFaceObservation] else { return }
             self.capturePreviewView.removeMask()
+            
             for face in results {
                 self.capturePreviewView.drawFaceboundingBox(face: face)
+            }
+            if (self.capturePreviewView.getCaptureState()) {
+                print("capturing picture...")
+                self.cameraController.capturePhoto()
             }
         }
     }

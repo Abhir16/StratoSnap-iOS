@@ -12,7 +12,7 @@ import UIKit
 
 class DroneLaunchController: UIViewController {
     /// TODO: change to 30 seconds for final release
-    var seconds = 10
+    var seconds = 2
     var timer = Timer()
     var info: FlightSettings?
     

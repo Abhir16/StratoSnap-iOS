@@ -114,7 +114,16 @@ extension MainFlightController: CameraControllerDelegate {
             }
             if (self.capturePreviewView.getCaptureState()) {
                 print("capturing picture...")
-                self.cameraController.capturePhoto()
+                
+                self.cameraController.captureImage {(image, error) in
+                    guard let image = image else {
+                        //print(error ?? "Image capture error")
+                        return
+                    }
+                    try? PHPhotoLibrary.shared().performChangesAndWait {// save to library
+                        PHAssetChangeRequest.creationRequestForAsset(from: image)
+                    }
+                }
             }
         }
     }

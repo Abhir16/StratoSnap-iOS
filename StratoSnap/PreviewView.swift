@@ -23,7 +23,9 @@ class PreviewView: UIView {
     private var boundingBoxLayer = CAShapeLayer()
     private var state: GimbalState = .idle
     private var captureCount: CGFloat = 0.0
-    private static var captureMax: CGFloat = 50
+    private var consecutiveCaptureCount: CGFloat = 0.0
+    private static var CONFIDENCE_THRESHOLD: CGFloat = 8
+    private static var INTERSECTION_THRESHOLD: CGFloat = 0.5
     // MARK: AV capture properties
     var videoPreviewLayer: AVCaptureVideoPreviewLayer {
         return layer as! AVCaptureVideoPreviewLayer
@@ -71,20 +73,17 @@ class PreviewView: UIView {
         var downWeight:CGFloat = 0.0
         var captureWeight:CGFloat = 0.0
         for layer in maskLayer {
-            let topLeft = CGPoint(x:layer.frame.minX, y:layer.frame.minY);
-            let topRight = CGPoint(x:layer.frame.maxX, y:layer.frame.minY);
-            let bottomLeft = CGPoint(x:layer.frame.minY, y:layer.frame.maxY);
-            let bottomRight = CGPoint(x:layer.frame.maxX, y:layer.frame.maxY);
             let height = layer.frame.height
             let width = layer.frame.width
             let area = height * width
-            // TODO: change the capture condition such that if over x % of bounding box hieght is filled, capture picture
-            print("this is the area" + area.description)
-            if ( boundingBoxLayer.frame.contains(topLeft) && ( width > boundingBoxLayer.frame.width || boundingBoxLayer.frame.contains(bottomLeft) )
-                || boundingBoxLayer.frame.contains(bottomLeft) && ( (width > boundingBoxLayer.frame.width)  || boundingBoxLayer.contains(topLeft) )) {
+            let intersectingRect = boundingBoxLayer.frame.intersection(layer.frame)
+            
+            let percent_intersection = intersectingRect.width / boundingBoxLayer.frame.width
+            print("percent intersection: " + percent_intersection.description)
+            if ( percent_intersection >= PreviewView.INTERSECTION_THRESHOLD) {
                 captureWeight += area
             }
-            else if (boundingBoxLayer.frame.minX < topLeft.x) {
+            else if (boundingBoxLayer.frame.midX < layer.frame.midX) {
                 downWeight += area
             }
             else {
@@ -94,26 +93,27 @@ class PreviewView: UIView {
         let maxWeight = max(downWeight, upWeight, captureWeight )
         if maxWeight.isEqual(to: 0.0) {
             state = .idle
+            self.consecutiveCaptureCount = 0
             print("need to idle!")
         }
         else if (maxWeight.isEqual(to: downWeight)) {
             state = .moveDown
+            self.consecutiveCaptureCount = 0
             print("need to move up!")
         }
         else if (maxWeight.isEqual(to: upWeight)) {
             state = .moveUp
+            self.consecutiveCaptureCount = 0
             print("need to move down!")
         }
         else {
             state = .capture
             print("need to capture!")
-            
-            if self.captureCount < PreviewView.captureMax {
+            if self.consecutiveCaptureCount >= PreviewView.CONFIDENCE_THRESHOLD {
+                self.consecutiveCaptureCount = 0.0
                 return true
             }
-            print("...captureCount is " + self.captureCount.description )
-            
-            self.captureCount += 1
+            self.consecutiveCaptureCount += 1.0
         }
         
         return false

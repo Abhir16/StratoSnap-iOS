@@ -45,14 +45,9 @@ class CameraController: NSObject {
     
     func captureImage(completion: @escaping (UIImage?, Error?) -> Void) {
         guard let captureSession = captureSession, captureSession.isRunning else { completion(nil, CameraControllerError.captureSessionIsMissing); return }
-        self.capturePhoto()
+        self.photoOutput?.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
         self.photoCaptureCompletionBlock = completion
         print("captured the image!!")
-    }
-    public func capturePhoto() {
-        // TODO: need to fix how you must hit the capture button first before automatic capture is triggered
-        print("capture!!!!!!")
-        self.photoOutput?.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
     }
 }
 

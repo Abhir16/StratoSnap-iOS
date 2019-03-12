@@ -23,9 +23,15 @@ class PreviewView: UIView {
     private var boundingBoxLayer = CAShapeLayer()
     private var state: GimbalState = .idle
     private var captureCount: CGFloat = 0.0
+    private var upCount: CGFloat = 0.0
+    private var downCount: CGFloat = 0.0
+    private static var UpThreshold:CGFloat = 2.0
+    private static var DownThreshold:CGFloat = 2.0
     private var consecutiveCaptureCount: CGFloat = 0.0
-    private static var CONFIDENCE_THRESHOLD: CGFloat = 8
+    private static var CONFIDENCE_THRESHOLD: CGFloat = 2
     private static var INTERSECTION_THRESHOLD: CGFloat = 0.5
+    private var increment: CGFloat = 7.0
+    private var position:CGFloat = 50
     // MARK: AV capture properties
     var videoPreviewLayer: AVCaptureVideoPreviewLayer {
         return layer as! AVCaptureVideoPreviewLayer
@@ -53,6 +59,14 @@ class PreviewView: UIView {
         layer.insertSublayer(boundingBoxLayer, at: 1)
         print("bounding box topleft coord is " + boundingBoxLayer.frame.height.description + " " + boundingBoxLayer.frame.width.description)
         
+        let url = URL(string: "http://172.20.10.6/dji_naza_web_interface/ccommand.php?move_gimbal_value="+position.description+"&"+"move_gimbal_time=1")!
+
+        let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+            guard let data = data else { return }
+            print(String(data: data, encoding: .utf8)!)
+        }
+        task.resume()
+//
     }
     
     private func drawFace(in rect: CGRect) -> Void {
@@ -66,19 +80,32 @@ class PreviewView: UIView {
         maskLayer.append(mask)
         layer.insertSublayer(mask, at: 1)
     }
+    private func sendPositionRequest() {
+    
+        let url = URL(string: "http://172.20.10.6/dji_naza_web_interface/ccommand.php?move_gimbal_value="+position.description+"&"+"move_gimbal_time=1")!
+
+        let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+        guard let data = data else { return }
+        print(String(data: data, encoding: .utf8)!)
+        }
+
+        task.resume()
+    }
     
     // Create a new layer drawing the bounding box
     public func getCaptureState() -> Bool {
         var upWeight: CGFloat = 0.0
         var downWeight:CGFloat = 0.0
         var captureWeight:CGFloat = 0.0
+        
         for layer in maskLayer {
             let height = layer.frame.height
             let width = layer.frame.width
             let area = height * width
             let intersectingRect = boundingBoxLayer.frame.intersection(layer.frame)
             
-            let percent_intersection = intersectingRect.width / boundingBoxLayer.frame.width
+            let percent_intersection = intersectingRect.width / width
+            print("this is the intersection " + percent_intersection.description)
             print("percent intersection: " + percent_intersection.description)
             if ( percent_intersection >= PreviewView.INTERSECTION_THRESHOLD) {
                 captureWeight += area
@@ -93,26 +120,43 @@ class PreviewView: UIView {
         let maxWeight = max(downWeight, upWeight, captureWeight )
         if maxWeight.isEqual(to: 0.0) {
             state = .idle
+            self.downCount = 0
+            self.upCount = 0
             self.consecutiveCaptureCount = 0
             print("need to idle!")
         }
         else if (maxWeight.isEqual(to: downWeight)) {
-            state = .moveDown
+            if (upCount > PreviewView.UpThreshold) {
+                state = .moveDown
+                position = min(100, position + increment)
+                sendPositionRequest()
+                self.upCount = 0
+            }
+            self.upCount += 1
+            self.downCount = 0
             self.consecutiveCaptureCount = 0
-            print("need to move up!")
+            print("need to move up! " + position.description)
         }
         else if (maxWeight.isEqual(to: upWeight)) {
-            state = .moveUp
+            if (self.downCount > PreviewView.DownThreshold) {
+                state = .moveUp
+                sendPositionRequest()
+                self.downCount = 0
+            }
+            self.downCount += 1
+            self.upCount = 0
             self.consecutiveCaptureCount = 0
-            print("need to move down!")
+            print("need to move down! " + position.description)
         }
         else {
             state = .capture
             print("need to capture!")
-            if self.consecutiveCaptureCount >= PreviewView.CONFIDENCE_THRESHOLD {
-                self.consecutiveCaptureCount = 0.0
-                return true
-            }
+//            if self.consecutiveCaptureCount >= PreviewView.CONFIDENCE_THRESHOLD {
+//                self.consecutiveCaptureCount = 0.0
+//                return true
+//            }
+            self.downCount = 0
+            self.upCount = 0
             self.consecutiveCaptureCount += 1.0
         }
         
@@ -121,16 +165,15 @@ class PreviewView: UIView {
     
     public func drawFaceboundingBox(face : VNFaceObservation) {
         
-        let transform = CGAffineTransform(scaleX: 1, y: -1).translatedBy(x: 0, y: -frame.height)
+        let boundingBox = face.boundingBox
         
-        let translate = CGAffineTransform.identity.scaledBy(x: frame.width, y: frame.height)
+        let size = CGSize(width: boundingBox.width * frame.height,
+                                 height: boundingBox.height * frame.width)
+
+        let origin = CGPoint(x: (1 - boundingBox.maxY) * frame.width,
+                             y: (1 - boundingBox.maxX) * frame.height)
         
-        // The coordinates are normalized to the dimensions of the processed image, with the origin at the image's lower-left corner.
-        var facebounds = face.boundingBox.applying(translate).applying(transform)
-        // temporary, need to find the proper transform to achieve same result as below - required for landscape
-        facebounds = CGRect(origin: facebounds.origin,  size: CGSize(width: facebounds.size.height, height: facebounds.size.width))
-        
-        drawFace(in:facebounds)
+        drawFace(in:CGRect(origin: origin, size: size))
         
     }
     

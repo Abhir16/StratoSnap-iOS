@@ -60,6 +60,8 @@ class MainFlightController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let value = UIInterfaceOrientation.landscapeLeft.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
         /// temporary capture button, will remove in next pull request
         let captureButton = UIButton(frame: CGRect(x: 100, y: 100, width: 100, height: 50))
         captureButton.backgroundColor = .blue

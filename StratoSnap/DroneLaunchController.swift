@@ -20,6 +20,8 @@ class DroneLaunchController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let value = UIInterfaceOrientation.portrait.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
         print("DroneLaunchController has loaded!")
         navigationItem.hidesBackButton = true
         if seconds < 10 {

@@ -18,6 +18,8 @@ class FlightSettingsController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let value = UIInterfaceOrientation.portrait.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
         print("HomeScreen has loaded!")
         print(info?.position)
         print(info?.height)

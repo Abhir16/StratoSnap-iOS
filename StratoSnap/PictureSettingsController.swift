@@ -73,6 +73,8 @@ class PictureSettingsController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         layout()
+        let value = UIInterfaceOrientation.portrait.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
         print("PictureSettingsController has loaded!")
         BoundingBox.addGestureRecognizer(panRecognizer)
         BoundingBox.addGestureRecognizer(pinchRecognizer)

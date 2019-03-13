@@ -29,8 +29,8 @@ class PreviewView: UIView {
     private static var DownThreshold:CGFloat = 2.0
     private var consecutiveCaptureCount: CGFloat = 0.0
     private static var CONFIDENCE_THRESHOLD: CGFloat = 2
-    private static var INTERSECTION_THRESHOLD: CGFloat = 0.7
-    private var increment: CGFloat = 7.0
+    private static var INTERSECTION_THRESHOLD: CGFloat = 0.5
+    private var increment: CGFloat = 5.0
     private var position:CGFloat = 50
     // MARK: AV capture properties
     var videoPreviewLayer: AVCaptureVideoPreviewLayer {

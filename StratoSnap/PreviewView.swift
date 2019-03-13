@@ -29,7 +29,7 @@ class PreviewView: UIView {
     private static var DownThreshold:CGFloat = 2.0
     private var consecutiveCaptureCount: CGFloat = 0.0
     private static var CONFIDENCE_THRESHOLD: CGFloat = 2
-    private static var INTERSECTION_THRESHOLD: CGFloat = 0.5
+    private static var INTERSECTION_THRESHOLD: CGFloat = 0.7
     private var increment: CGFloat = 7.0
     private var position:CGFloat = 50
     // MARK: AV capture properties
@@ -82,7 +82,7 @@ class PreviewView: UIView {
     }
     private func sendPositionRequest() {
     
-        let url = URL(string: "http://172.20.10.6/dji_naza_web_interface/ccommand.php?move_gimbal_value="+position.description+"&"+"move_gimbal_time=1")!
+        let url = URL(string: "http://172.20.10.6/dji_naza_web_interface/ccommand.php?move_gimbal_value="+self.position.description+"&"+"move_gimbal_time=1")!
 
         let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
         guard let data = data else { return }
@@ -128,7 +128,7 @@ class PreviewView: UIView {
         else if (maxWeight.isEqual(to: downWeight)) {
             if (upCount > PreviewView.UpThreshold) {
                 state = .moveDown
-                position = min(100, position + increment)
+                self.position = min(100, position + increment)
                 sendPositionRequest()
                 self.upCount = 0
             }
@@ -140,6 +140,7 @@ class PreviewView: UIView {
         else if (maxWeight.isEqual(to: upWeight)) {
             if (self.downCount > PreviewView.DownThreshold) {
                 state = .moveUp
+                self.position = max(0, position - increment)
                 sendPositionRequest()
                 self.downCount = 0
             }

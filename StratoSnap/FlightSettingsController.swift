@@ -33,6 +33,8 @@ class FlightSettingsController: UIViewController {
         super.viewWillAppear(animated)
         
         AppUtility.lockOrientation(.portrait)
+        
+        
         // Or to rotate and lock
         // AppUtility.lockOrientation(.portrait, andRotateTo: .portrait)
         

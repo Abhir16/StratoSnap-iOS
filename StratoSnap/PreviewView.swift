@@ -66,7 +66,7 @@ class PreviewView: UIView {
             print(String(data: data, encoding: .utf8)!)
         }
         task.resume()
-//
+        
     }
     
     private func drawFace(in rect: CGRect) -> Void {
@@ -152,10 +152,10 @@ class PreviewView: UIView {
         else {
             state = .capture
             print("need to capture!")
-//            if self.consecutiveCaptureCount >= PreviewView.CONFIDENCE_THRESHOLD {
-//                self.consecutiveCaptureCount = 0.0
-//                return true
-//            }
+            if self.consecutiveCaptureCount >= PreviewView.CONFIDENCE_THRESHOLD {
+                self.consecutiveCaptureCount = 0.0
+                return true
+            }
             self.downCount = 0
             self.upCount = 0
             self.consecutiveCaptureCount += 1.0
@@ -167,12 +167,33 @@ class PreviewView: UIView {
     public func drawFaceboundingBox(face : VNFaceObservation) {
         
         let boundingBox = face.boundingBox
+        let bounds = frame
+        var size: CGSize
+        var origin: CGPoint
         
-        let size = CGSize(width: boundingBox.width * frame.height,
-                                 height: boundingBox.height * frame.width)
-
-        let origin = CGPoint(x: (1 - boundingBox.maxY) * frame.width,
-                             y: (1 - boundingBox.maxX) * frame.height)
+        switch UIDevice.current.orientation {
+        case .landscapeLeft, .landscapeRight:
+            size = CGSize(width: boundingBox.width * bounds.height,
+                          height: boundingBox.height * bounds.width)
+        default:
+            size = CGSize(width: boundingBox.width * bounds.width,
+                          height: boundingBox.height * bounds.height)
+        }
+        
+        switch UIDevice.current.orientation {
+        case .landscapeLeft:
+            origin = CGPoint(x: boundingBox.minY * bounds.width,
+                             y: boundingBox.minX * bounds.height)
+        case .landscapeRight:
+            origin = CGPoint(x: (1 - boundingBox.maxY) * bounds.width,
+                             y: (1 - boundingBox.maxX) * bounds.height)
+        case .portraitUpsideDown:
+            origin = CGPoint(x: (1 - boundingBox.maxX) * bounds.width,
+                             y: boundingBox.minY * bounds.height)
+        default:
+            origin = CGPoint(x: boundingBox.minX * bounds.width,
+                             y: (1 - boundingBox.maxY) * bounds.height)
+        }
         
         drawFace(in:CGRect(origin: origin, size: size))
         

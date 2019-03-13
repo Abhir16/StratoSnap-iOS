@@ -60,7 +60,7 @@ class MainFlightController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let value = UIInterfaceOrientation.landscapeLeft.rawValue
+        let value = UIInterfaceOrientation.landscapeRight.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
         /// temporary capture button, will remove in next pull request
         // Do any additional setup after loading the view, typically from a nib.
